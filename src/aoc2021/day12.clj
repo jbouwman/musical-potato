@@ -2,6 +2,8 @@
   (:require [clojure.string :as str]))
 
 ;; Day 11: Graph search
+;;
+;; Generate and test over undirected cyclic graph
 
 (def input-file "input/12")
 
