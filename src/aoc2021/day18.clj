@@ -10,6 +10,12 @@
                  (range (inc i) n)))
           (range n)))
 
+(defn index-of [f s]
+  (some identity
+        (map-indexed (fn [i n]
+                       (when (f n) i))
+                     s)))
+
 (defn getn [n p]
   (case (first p)
     :l (getn (first n) (rest p))
@@ -47,11 +53,6 @@
       nil i
       :l (recur p i)
       :r (recur p (inc i)))))
-
-(defn index-of [f s]
-  (some identity
-        (map-indexed (fn [i n]
-                       (when (f n) i)) s)))
 
 (defn explode [p n]
   (let [[a b] (getn n p)
